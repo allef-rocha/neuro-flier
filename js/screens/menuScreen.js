@@ -1,9 +1,9 @@
 import { gameSettings } from '../modules/settings.js'
 
 import { AbstractScreen } from './abstractScreen.js'
-import { ButtonComponent } from '../components/button.js'
-import { Game } from './game.js'
-import { AI } from './ai.js'
+import { ButtonComponent } from '../components/buttonComponent.js'
+import { Game } from './gameScreen.js'
+import { AI } from './aiScreen.js'
 
 export class Menu extends AbstractScreen {
     constructor(screenManager) {

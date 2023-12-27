@@ -1,7 +1,5 @@
-import { Layer } from './ai/layer.js'
 import { updateScale, gameSettings as settings } from './modules/settings.js'
-
-import { Menu } from './screens/menu.js'
+import { Menu } from './screens/menuScreen.js'
 import { ScreenManager } from './screens/screenManager.js'
 
 let screenManager
@@ -14,7 +12,7 @@ function preload() {
 }
 
 function setup() {
-    new Layer(0, 0, 0)
+    frameRate(60)
     textFont(font)
     let canvas = createCanvas(settings.width * settings.scale, settings.height * settings.scale)
     canvas.parent('canvas-container')

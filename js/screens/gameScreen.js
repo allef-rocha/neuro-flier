@@ -4,15 +4,16 @@ import { AbstractScreen } from "./abstractScreen.js"
 import { Player } from "../modules/player.js"
 import { Obstacle } from "../modules/obstacle.js"
 import { checkCollisionPlayerObstacle } from "../modules/utils.js"
-import { Menu } from "./menu.js"
-import { TextComponent } from "../components/text.js"
-import { ButtonComponent } from "../components/button.js"
-import { RectComponent } from '../components/rect.js'
+import { Menu } from "./menuScreen.js"
+import { TextComponent } from "../components/textComponent.js"
+import { ButtonComponent } from "../components/buttonComponent.js"
+import { RectComponent } from '../components/rectComponent.js'
 
 export class Game extends AbstractScreen {
     constructor(screenManager) {
         super()
         this.screenManager = screenManager
+        this.deltaTimes = []
         this.startGame()
     }
 
@@ -62,7 +63,7 @@ export class Game extends AbstractScreen {
 
     gameOver() {
         this.isGameOver = true
-
+        
         const gameOverText = new TextComponent(
             "GAME OVER",
             settings.width * .5,
@@ -118,6 +119,7 @@ export class Game extends AbstractScreen {
 
         const currentTime = performance.now()
         let deltaTime = (currentTime - this.lastTime) / 1000
+        this.deltaTimes.push(deltaTime)
         this.lastTime = currentTime
 
         this.player.update(deltaTime)

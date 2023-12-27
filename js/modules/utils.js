@@ -1,4 +1,4 @@
-import { gameSettings as settings } from '../modules/settings.js'
+import { gameSettings as settings } from './settings.js'
 
 
 export class Rectangle {
